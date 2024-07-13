@@ -5,6 +5,7 @@ on:
     branches: ['master']
 
 jobs:
+
   build:
      name: Push Docker image to Docker Hub
      runs-on: self-hosted
@@ -15,7 +16,7 @@ jobs:
            DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
            DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
          run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-         
+
        - name: Build docker image
          run: docker build -t ambika06101995/nodejs-app .
        - name: Publish docker image to docker hub
