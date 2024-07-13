@@ -5,17 +5,17 @@ on:
     branches: ['master']
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
-    runs-on: ubuntu-latest
-    steps:
-        uses: actions/checkout@v3
-      - name: Log in to Docker Hub
-        env: 
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      - name: Build docker image
-        run: docker build -t ambika06101995/nodejs-app .
-      - name: Publish docker image to docker hub
-        run: docker push ambika06101995/nodejs-app:latest
+   push_to_registry:
+      name: Push Docker image to Docker Hub
+      runs-on: ubuntu-latest
+      steps:
+         uses: actions/checkout@v3
+       - name: Log in to Docker Hub
+         env: 
+           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+       - name: Build docker image
+         run: docker build -t ambika06101995/nodejs-app .
+       - name: Publish docker image to docker hub
+         run: docker push ambika06101995/nodejs-app:latest
