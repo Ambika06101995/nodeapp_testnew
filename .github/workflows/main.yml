@@ -5,8 +5,7 @@ on:
     branches: ['master']
 
 jobs:
-
-  build:
+  build_docker_images:
      name: Push Docker image to Docker Hub
      runs-on: self-hosted
      steps:
